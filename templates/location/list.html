@@ -1,7 +1,20 @@
 {% extends "base/theme.html" %}
+{% load bootstrap_pagination %}
 {% block main_content %}
+
+<div class="data-layer">
+ <ul>
+ {% for location in object_list %}
+ <li class="location-data" data-latitude="{{ location.position.latitude }}" data-longitude="{{ location.position.longitude }}" data-id="{{ location.id }}">{{ location.title }}</li>
+ {% endfor %}
+ </ul>
+</div>
+
+
 <div class="row main-content">
+    <div id="map" class="wide-map" style = "height: 200px"> </div>
     <div class="col-md-2"></div>
+
     <div class="col-md-8">
     {% for location in object_list %}
         <div class="row">
@@ -24,4 +37,9 @@
     </div>
     <div class="col-md-2"></div>
 </div>
+{% endblock %}
+
+
+{% block pagination %}
+{% bootstrap_paginate page_obj range=5 show_prev_next="false" show_first_last="true" %}
 {% endblock %}
