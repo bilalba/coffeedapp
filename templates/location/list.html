@@ -25,11 +25,13 @@
  <h3>{% include 'base/rating.html' with rating=location.get_average_rating %}</h3>
  </div>
  <div class="col-md-12">
- {% if location.address %}<p><b>Location: </b>{{ location.address }}</p>{% endif %}
- {% if location.hours %}<p>{{ location.hours }}</p>{% endif %}
-  {% if location.image_file %}
+ {% if location.image_file %}
  <img class="img-responsive" src="{{ location.image_file.url }}"></img>
   {% endif %}
+ {% if location.address %}<p><b>Location: </b>{{ location.address }}</p>{% endif %}
+ {% if location.hours %}<p>{{ location.hours }}</p>{% endif %}
+ {% include 'location/specifics.html' with location=location %}
+  
  <p>{{ location.description }}</p>
  
  </div> 
