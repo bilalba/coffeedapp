@@ -61,7 +61,7 @@ class ReviewUpdateView(UpdateView):
 	template_name = 'base/form.html'
 	fields = ['description', 'rating']
 
-	def get_object():
+	def get_object(self):
 		return coremodels.Review.objects.get(location_id = self.kwargs['pk'], user = self.request.user)
 
 	def get_success_url(self):
