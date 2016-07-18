@@ -140,3 +140,12 @@ STATIC_ROOT = os.path.join(MAIN_DIR, 'staticfiles')
 STATICFILES_DIRS = (
     os.path.join(MAIN_DIR, 'static'),
     )
+
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+AWS_S3_FORCE_HTTP_URL = True
+AWS_QUERYSTRING_AUTH = False
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWSSecretKey')
+AWS_ACCESS_KEY_ID = os.environ.get('AWSAccessKeyId')
+
+AWS_STORAGE_BUCKET_NAME = 'coffeedb'
