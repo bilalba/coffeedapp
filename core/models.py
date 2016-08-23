@@ -99,3 +99,11 @@ class Review(models.Model):
 	description = models.TextField(null=True, blank=True)
 	rating = models.IntegerField(choices=RATING_CHOICES, null=True, blank= True)
 	created_at = models.DateTimeField(auto_now_add=True)
+
+
+class Video(models.Model):
+	streaming_url_high = models.TextField(null=True, blank=True)
+	streaming_url_low = models.TextField(null=True, blank=True)
+	thumb_720 = models.TextField(null=True, blank=True)
+	thumb_180 = models.TextField(null=True, blank=True)
+	thumb_64 = models.TextField(null=True, blank=True)

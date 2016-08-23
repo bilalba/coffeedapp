@@ -1,0 +1,32 @@
+ABC
+<div>
+{% for video in object_list %}
+
+        <video id="{{ forloop.counter0 }}" width="500" height="350" controls autoplay>
+        <source src="{{ video.streaming_url_high }}" type='video/mp4'>
+            <a href="{{ video.streaming_url_high }}">
+                <img src="https://a2ua.com/404/404-005.jpg" title="Your browser does not support the <video> tag">
+             </a>
+        <p>This browser can't run this video</p>
+        </video>
+        zzzzzz
+
+{% endfor %}
+
+</div>
+
+<script>
+var videos = document.querySelectorAll('video');
+for (var i = 0; i < videos.length; i++) {
+    var v = videos[i];
+    console.log('index= ' +i);
+    var sources = v.querySelectorAll('source'),
+        lastsource = sources[sources.length-1];
+    lastsource.addEventListener('error', function(ev) {
+        var d = document.createElement('div');
+        d.innerHTML = v.innerHTML;
+        console.log(v);
+        v.parentNode.replaceChild(d, v);
+    }, false);  
+}
+</script>

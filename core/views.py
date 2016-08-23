@@ -10,6 +10,11 @@ from sitegate.decorators import redirect_signedin, sitegate_view
 class LandingView(TemplateView):
 	template_name = "base/index.html"
 
+class SampleView(ListView):
+	model =  coremodels.Video
+	template_name = "base/sample.html"
+	context_object_name = 'video'
+
 class LocationListView(ListView):
 	model = coremodels.Location
 	template_name = 'location/list.html'
